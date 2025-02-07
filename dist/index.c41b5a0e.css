@@ -29,7 +29,10 @@ a {
 
 .header-container {
   background-color: var(--elements-color);
+  z-index: 1;
   padding-inline: 24px;
+  position: sticky;
+  top: 0;
   box-shadow: 0 2px 4px #0000001a;
 }
 
