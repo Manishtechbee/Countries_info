@@ -9,7 +9,7 @@ export default function CountryDetailSkeleton() {
             <div className="skeleton-details-text-container">
               <div className="head"></div>
               <div className="skeleton-details-text">
-              {Array.from({length:7}).map((ele,idx)=>{
+              {Array.from({length:8}).map((ele,idx)=>{
         return <span className='para' key={idx}></span>
     })}         
               </div>

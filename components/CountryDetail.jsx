@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./country.css"
 import { Link, useLocation, useParams } from 'react-router-dom'
 import CountryDetailSkeleton from './CountryDetailSkeleton';
+import { useTheme } from '../hooks/useTheme';
 
 export default function CountryDetail() {
   const params=useParams();
@@ -27,16 +28,16 @@ export default function CountryDetail() {
     console.log(data)
     setcountryData(
       {
-        img:data.flags.svg,
-        alt:data.flags.alt,
-        name: data.name.common,
-        nativeName: Object.values(data.name.nativeName)[0].common,
-        population: data.population.toLocaleString('en-IN'),
-        region: data.region,
-        subRegion: data.subregion,
-        capital: data.capital.join(','),
-        languages: Object.values(data.languages).join(','),
-        currencies: Object.values(data.currencies)
+        img:data.flags.svg ,
+        alt:data.flags.alt ,
+        name: data.name.common || data.name,
+        nativeName: Object.values(data.name.nativeName || {})[0].common,
+        population: data.population.toLocaleString('en-IN') ,
+        region: data.region ,
+        subRegion: data.subregion ,
+        capital: data.capital.join(',') ,
+        languages: Object.values(data.languages || {}).join(','),
+        currencies: Object.values(data.currencies || {})
         .map((currency) => currency.name)
         .join(', '),
         tld:Object.values(data.tld).join(','),
@@ -73,13 +74,12 @@ export default function CountryDetail() {
   if(notFound){
     return <div className='notfound'> Country Not Found!!!...........</div>
   }
-  if(loading){
-    return <CountryDetailSkeleton/>
-  }
+  
+  const [isdark,setisdark]=useTheme()
   return (
     <>
-      <main>
-      <div className="country-details-container">
+      <main className={`${isdark?'dark':''}`}>
+      {loading?<CountryDetailSkeleton/>:<div className="country-details-container">
         <span className="back-button" onClick={()=>{history.back()}}>
           <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
         </span>
@@ -104,7 +104,7 @@ export default function CountryDetail() {
                 )) : 'None'}</div>
           </div>
         </div>
-      </div>
+      </div>}
     </main></>
   )
   

@@ -4,11 +4,13 @@
     margin-top: 32px;
 }
 
+
 .back-button {
     padding: 6px 24px;
     box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     cursor: pointer;
+    background-color: var(--elements-color);
 }
 
 .country-details {
@@ -48,6 +50,7 @@
     padding: 4px 16px;
     box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    background-color: var(--elements-color);
     font-size: 14px;
 }
 
