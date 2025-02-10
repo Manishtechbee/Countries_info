@@ -2,7 +2,7 @@
   "name": "country-proj",
   "version": "1.0.0",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
+   
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html"
