@@ -2,7 +2,7 @@
   "name": "country-proj",
   "version": "1.0.0",
   "scripts": {
-    "build":"parcel build index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html"
   },
@@ -11,10 +11,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@parcel/watcher": "^2.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "6.29.0",
-    "@parcel/watcher": "^2.0.0"
+    "react-router-dom": "6.29.0"
   },
   "devDependencies": {
     "parcel": "^2.13.3"
